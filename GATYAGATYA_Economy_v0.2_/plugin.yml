@@ -1,0 +1,9 @@
+name: GATYAGATYA_Economy
+main: awareness\Main
+version: 0.2
+api: [3.0.0-ALPHA11]
+load: POSTWORLD
+description: ガチャガチャができます('ω')
+commands:
+ gta:
+  description: ガチャガチャができるぞ(＾ω＾)ﾆｺﾆｺ
