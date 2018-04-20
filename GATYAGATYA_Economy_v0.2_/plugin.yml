@@ -4,6 +4,8 @@ version: 0.2
 api: [3.0.0-ALPHA11]
 load: POSTWORLD
 description: ガチャガチャができます('ω')
+depend:
+ - EconomyAPI
 commands:
  gta:
   description: ガチャガチャができるぞ(＾ω＾)ﾆｺﾆｺ
