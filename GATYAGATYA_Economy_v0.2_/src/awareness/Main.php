@@ -21,13 +21,13 @@ class Main extends PluginBase implements Listener{
 		$this->EconomyAPI = $this->getServer()->getPluginManager()->getPlugin("EconomyAPI");
 	}
 
-	public function onCommand(CommandSender $sender, Command $commamd, string $label, array $args): bool{
+	public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool{
 		if (!$sender instanceof Player){
 			$sender->sendMessage(TextFormat::RED."[エラー] コマンドはゲーム内で使用してください");
 			return true;
 		}
 
-		if ($command->getName() == "gta"){
+		if ($command->getName() === "gta"){
 			$subCommand = strtolower(array_shift($args));
 			switch ($subCommand){
 				case "help":
@@ -43,7 +43,7 @@ class Main extends PluginBase implements Listener{
 					"§a=============================================\n".
 					"§bガチャリスト\n".
 					"§6レアリスト\n".
-					"§c鉄10個 金15個 コンパス1個\n"
+					"§c鉄10個 金15個 コンパス1個\n".
 					"§bノーマル\n".
 					"§c原木64個 丸石64個 石炭32個 ガラス32個 ステーキ10個\n".
 					"§cパン32個 鉄のピッケル1個 フェンス32個\n".
@@ -54,6 +54,7 @@ class Main extends PluginBase implements Listener{
 				return true;
 
 				case "":
+				$price = 600;
 				$name = $sender->getName();
 				$money = $this->EconomyAPI->myMoney($name);
 				if ($money < $price){
@@ -61,7 +62,7 @@ class Main extends PluginBase implements Listener{
 					return true;
 				}
 
-				$this->EconomyAPI->reduceMoney($name, $prise);
+				$this->EconomyAPI->reduceMoney($name, $price);
 				$rand = rand(1, 13);
 				switch($rand){
 					case 1:				
